@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		88534F401E495012001C54F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88534F3F1E495012001C54F7 /* AppDelegate.swift */; };
-		88534F421E495012001C54F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88534F411E495012001C54F7 /* ViewController.swift */; };
+		88534F421E495012001C54F7 /* CustomTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88534F411E495012001C54F7 /* CustomTabViewController.swift */; };
 		88534F451E495012001C54F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88534F431E495012001C54F7 /* Main.storyboard */; };
 		88534F471E495012001C54F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88534F461E495012001C54F7 /* Assets.xcassets */; };
 		88534F4A1E495012001C54F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88534F481E495012001C54F7 /* LaunchScreen.storyboard */; };
 		88534F551E495012001C54F7 /* CustomTabViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88534F541E495012001C54F7 /* CustomTabViewControllerTests.swift */; };
 		88534F601E495012001C54F7 /* CustomTabViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88534F5F1E495012001C54F7 /* CustomTabViewControllerUITests.swift */; };
+		88534F6E1E495D35001C54F7 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88534F6D1E495D35001C54F7 /* CustomTabView.swift */; };
+		88534F701E495FBB001C54F7 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88534F6F1E495FBB001C54F7 /* CustomTabBar.swift */; };
+		88534F741E4967F5001C54F7 /* CustomTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88534F731E4967F5001C54F7 /* CustomTabItem.swift */; };
+		88534F761E496815001C54F7 /* CustomTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88534F751E496815001C54F7 /* CustomTabItemView.swift */; };
+		88534F781E496DB9001C54F7 /* CustomTabCenterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88534F771E496DB9001C54F7 /* CustomTabCenterItem.swift */; };
+		88534F7A1E496DDB001C54F7 /* CustomTabCenterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88534F791E496DDB001C54F7 /* CustomTabCenterItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +42,7 @@
 /* Begin PBXFileReference section */
 		88534F3C1E495012001C54F7 /* CustomTabViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTabViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88534F3F1E495012001C54F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88534F411E495012001C54F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		88534F411E495012001C54F7 /* CustomTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabViewController.swift; sourceTree = "<group>"; };
 		88534F441E495012001C54F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88534F461E495012001C54F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88534F491E495012001C54F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +53,12 @@
 		88534F5B1E495012001C54F7 /* CustomTabViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomTabViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88534F5F1E495012001C54F7 /* CustomTabViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabViewControllerUITests.swift; sourceTree = "<group>"; };
 		88534F611E495012001C54F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88534F6D1E495D35001C54F7 /* CustomTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		88534F6F1E495FBB001C54F7 /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		88534F731E4967F5001C54F7 /* CustomTabItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabItem.swift; sourceTree = "<group>"; };
+		88534F751E496815001C54F7 /* CustomTabItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTabItemView.swift; path = ../CustomTabItemView.swift; sourceTree = "<group>"; };
+		88534F771E496DB9001C54F7 /* CustomTabCenterItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabCenterItem.swift; sourceTree = "<group>"; };
+		88534F791E496DDB001C54F7 /* CustomTabCenterItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabCenterItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +110,17 @@
 			isa = PBXGroup;
 			children = (
 				88534F3F1E495012001C54F7 /* AppDelegate.swift */,
-				88534F411E495012001C54F7 /* ViewController.swift */,
+				88534F411E495012001C54F7 /* CustomTabViewController.swift */,
 				88534F431E495012001C54F7 /* Main.storyboard */,
 				88534F461E495012001C54F7 /* Assets.xcassets */,
 				88534F481E495012001C54F7 /* LaunchScreen.storyboard */,
 				88534F4B1E495012001C54F7 /* Info.plist */,
+				88534F6D1E495D35001C54F7 /* CustomTabView.swift */,
+				88534F6F1E495FBB001C54F7 /* CustomTabBar.swift */,
+				88534F731E4967F5001C54F7 /* CustomTabItem.swift */,
+				88534F751E496815001C54F7 /* CustomTabItemView.swift */,
+				88534F771E496DB9001C54F7 /* CustomTabCenterItem.swift */,
+				88534F791E496DDB001C54F7 /* CustomTabCenterItemView.swift */,
 			);
 			path = CustomTabViewController;
 			sourceTree = "<group>";
@@ -262,7 +280,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88534F421E495012001C54F7 /* ViewController.swift in Sources */,
+				88534F781E496DB9001C54F7 /* CustomTabCenterItem.swift in Sources */,
+				88534F701E495FBB001C54F7 /* CustomTabBar.swift in Sources */,
+				88534F6E1E495D35001C54F7 /* CustomTabView.swift in Sources */,
+				88534F761E496815001C54F7 /* CustomTabItemView.swift in Sources */,
+				88534F741E4967F5001C54F7 /* CustomTabItem.swift in Sources */,
+				88534F7A1E496DDB001C54F7 /* CustomTabCenterItemView.swift in Sources */,
+				88534F421E495012001C54F7 /* CustomTabViewController.swift in Sources */,
 				88534F401E495012001C54F7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +439,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2766AW5J33;
 				INFOPLIST_FILE = CustomTabViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xiawenhao.CustomTabViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,6 +453,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2766AW5J33;
 				INFOPLIST_FILE = CustomTabViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xiawenhao.CustomTabViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -512,6 +538,7 @@
 				88534F661E495012001C54F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88534F671E495012001C54F7 /* Build configuration list for PBXNativeTarget "CustomTabViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +547,7 @@
 				88534F691E495012001C54F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88534F6A1E495012001C54F7 /* Build configuration list for PBXNativeTarget "CustomTabViewControllerUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +556,7 @@
 				88534F6C1E495012001C54F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
