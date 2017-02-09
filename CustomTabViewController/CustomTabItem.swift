@@ -11,20 +11,20 @@ import UIKit
 class CustomTabItem: NSObject {
 
     let title: String?
-    var titleColor = UIColor.gray
-    var highlightedTitleColor = UIColor.blue
+    var titleColor: UIColor
+    var highlightedTitleColor: UIColor
     
     let image: UIImage?
     let highlightedImage: UIImage?
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    init(title: String? = nil, image: UIImage? = nil, highlightedImage: UIImage? = nil) {
+    init(title: String? = nil, titleColor: UIColor = UIColor.gray, highlightedTitleColor: UIColor = UIColor(red: 0.133, green: 0.788, blue: 0.909, alpha: 1.0), image: UIImage? = nil, highlightedImage: UIImage? = nil) {
         self.title = title
         self.image = image
         self.highlightedImage = highlightedImage
+        self.titleColor = titleColor
+        self.highlightedTitleColor = highlightedTitleColor
+        
+        super.init()
     }
 
 }

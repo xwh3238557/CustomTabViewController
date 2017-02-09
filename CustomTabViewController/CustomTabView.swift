@@ -10,6 +10,8 @@ import UIKit
 
 class CustomTabView: UIView {
     
+    let MINI_TAB_HIGHT = CGFloat(50)
+    
     private var _mainView: UIView
     
     private var _tabView: CustomTabBar
@@ -55,11 +57,16 @@ class CustomTabView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let mainViewHeight = self.bounds.height/9*8
-        let mainViewWidth = self.bounds.width
-        
-        let tabViewHeight = self.bounds.height/9
+     
+        var tabViewHeight = self.bounds.height/9
         let tabViewWidth = self.bounds.width
+        
+        if tabViewHeight < MINI_TAB_HIGHT {
+            tabViewHeight = MINI_TAB_HIGHT
+        }
+        
+        let mainViewHeight = self.bounds.height - tabViewHeight
+        let mainViewWidth = self.bounds.width
         
        
         if self.subviews.contains(mainView) {

@@ -13,26 +13,34 @@ class CustomTabItemView: UIView {
     private var _iconView: UIImageView!
     private var _titleView: UILabel!
     
+    private let _item: CustomTabItem
+    
     var onTapListener: ((CustomTabItemView) -> Void)?
     
     var isSelected = false{
         didSet{
             _iconView.isHighlighted = isSelected
+            if isSelected {
+                _titleView.textColor = _item.highlightedTitleColor
+            } else {
+                _titleView.textColor = _item.titleColor
+            }
         }
     }
     
     init(item: CustomTabItem) {
+        self._item = item
         super.init(frame: CGRect.zero)
         _iconView = UIImageView(image: item.image, highlightedImage: item.highlightedImage)
         _iconView.contentMode = .scaleAspectFit
-
-        
+        self.addSubview(_iconView)
         
         _titleView = UILabel(frame: CGRect.zero)
         _titleView.textAlignment = .center
         _titleView.text = item.title
         _titleView.textColor = item.titleColor
-        _titleView.font = UIFont.systemFont(ofSize: 12)
+        
+        self.addSubview(_titleView)
         
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
 
@@ -53,23 +61,16 @@ class CustomTabItemView: UIView {
     
     
     override func layoutSubviews() {
-        let iconViewHeight = self.bounds.height / 5*3 - margin * 2
+        let iconViewHeight = self.bounds.height / 7*5 - margin * 2
         let iconViewWidth = self.bounds.width - margin * 2
         
         let titleViewWidth = self.bounds.width - margin * 2
-        let titleViewHeight = self.bounds.height / 5*2 - margin * 2
+        let titleViewHeight = self.bounds.height / 7*2 - margin * 2
     
-        if _iconView.superview != self  {
-            self.addSubview(_iconView)
-        }
         _iconView.frame = CGRect(x: margin, y: margin, width: iconViewWidth, height: iconViewHeight)
         
-        
-        if _titleView.superview != self {
-            self.addSubview(_titleView)
-        }
-        _titleView.frame = CGRect(x: margin, y: 2*margin + iconViewHeight, width: titleViewWidth, height: titleViewHeight)
-        
+        _titleView.frame = CGRect(x: margin, y: 3*margin + iconViewHeight, width: titleViewWidth, height: titleViewHeight)
+        _titleView.font = UIFont.systemFont(ofSize: titleViewHeight)
         
     }
 }

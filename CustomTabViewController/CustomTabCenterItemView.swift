@@ -10,13 +10,15 @@ import UIKit
 
 class CustomTabCenterItemView: UIView {
 
-    let margin = CGFloat(10)
+    private let _margin = CGFloat(10)
     
     private var _isSelected = false
     
-    private var tapListener: ((CustomTabCenterItemView) -> Void)?
+    var tapListener: ((CustomTabCenterItemView) -> Void)?
     
-    private let innerView: UIImageView
+    private var _oldBounds: CGRect?
+    
+    private let _innerView: UIImageView
     
     var isSelected: Bool{
         get{
@@ -25,13 +27,13 @@ class CustomTabCenterItemView: UIView {
     }
     
     init(item: CustomTabCenterItem) {
-        innerView = UIImageView(image: item.image)
+        _innerView = UIImageView(image: item.image)
        
         super.init(frame: CGRect.zero)
-        self.addSubview(innerView)
+        self.addSubview(_innerView)
         
-        innerView.isUserInteractionEnabled = true
-        innerView.contentMode = .scaleAspectFit
+        _innerView.isUserInteractionEnabled = true
+        _innerView.contentMode = .scaleAspectFit
        
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CustomTabCenterItemView.handleTap)))
     }
@@ -53,9 +55,9 @@ class CustomTabCenterItemView: UIView {
                        options: .allowAnimatedContent,
                        animations: { [unowned self] in
                             if self._isSelected {
-                                self.innerView.transform = CGAffineTransform(rotationAngle: roatet)
+                                self._innerView.transform = CGAffineTransform(rotationAngle: roatet)
                             } else {
-                                self.innerView.transform = CGAffineTransform(rotationAngle: 0)
+                                self._innerView.transform = CGAffineTransform(rotationAngle: 0)
                             }
                         },
                        completion: {Void in
@@ -68,21 +70,20 @@ class CustomTabCenterItemView: UIView {
         }
     }
     
-    func setOnTapListener(tapListener: ((CustomTabCenterItemView) -> Void)?){
-        self.tapListener = tapListener
-    }
-    
-    
-    
     override func layoutSubviews() {
         super.layoutSubviews()
-        let innerViewWidth = self.bounds.width - margin*2
-        let innerViewHeight = self.bounds.height - margin*2
         
-        let innerViewX = margin
-        let innerViewY = margin
+        let isBoundsChange = !(_oldBounds?.equalTo(self.bounds) ?? false)
         
-        innerView.frame = CGRect(x: innerViewX, y: innerViewY, width: innerViewWidth, height: innerViewHeight)
+        if isBoundsChange {
+            _oldBounds = self.bounds
+            let innerViewWidth = self.bounds.width - _margin*2
+            let innerViewHeight = self.bounds.height - _margin*2
+            let innerViewX = _margin
+            let innerViewY = _margin
+            
+            _innerView.frame = CGRect(x: innerViewX, y: innerViewY, width: innerViewWidth, height: innerViewHeight)
+        }
     }
 
 }

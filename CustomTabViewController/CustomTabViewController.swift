@@ -9,7 +9,26 @@
 import UIKit
 
 class CustomTabViewController: UIViewController {
+    var mainView: CustomTabView!
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    private override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        fatalError("don't support this method")
+ 
+    }
+    
+    override func loadView() {
+        mainView = CustomTabView(frame: CGRect.zero)
+        self.view = mainView
+    }
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
