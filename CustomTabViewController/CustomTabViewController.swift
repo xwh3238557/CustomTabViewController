@@ -21,22 +21,16 @@ class CustomTabViewController: UIViewController {
     
     private override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         fatalError("don't support this method")
- 
     }
     
     override func loadView() {
-        mainView = CustomTabView(frame: CGRect.zero)
-        self.view = mainView
+        mainView    = CustomTabView(frame: CGRect.zero)
+        self.view   = mainView
     }
-  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    
-
-
 }
 
