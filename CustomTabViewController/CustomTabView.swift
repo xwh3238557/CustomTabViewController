@@ -12,9 +12,9 @@ class CustomTabView: UIView {
     
     let MINI_TAB_HIGHT = CGFloat(50)
     
-    private var _mainView: UIView
+    private let _mainView: UIView
     
-    private var _tabView: CustomTabBar
+    private let _tabView: CustomTabBar
     
     var mainView: UIView{
         get{
@@ -31,7 +31,11 @@ class CustomTabView: UIView {
     override init(frame: CGRect) {
         _mainView = UIView(frame: CGRect.zero)
 
-        _tabView = CustomTabBar(firstTabItem: nil, secondTabItem: nil, thirdTabItem: nil, fouthTabItem: nil, centerTabItem: nil)
+        _tabView = CustomTabBar(firstTabItem:   nil,
+                                secondTabItem:  nil,
+                                thirdTabItem:   nil,
+                                fouthTabItem:   nil,
+                                centerTabItem:  nil)
       
         super.init(frame: frame)
 
@@ -41,12 +45,25 @@ class CustomTabView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         _mainView = UIView(frame: CGRect.zero)
-
-        _tabView = CustomTabBar(firstTabItem: CustomTabItem(title: "one", image: UIImage(named: "first_d"), highlightedImage: UIImage(named: "first")),
-                                secondTabItem: CustomTabItem(title: "two", image: UIImage(named: "second_d"), highlightedImage: UIImage(named: "second")),
-                                thirdTabItem: CustomTabItem(title: "three", image: UIImage(named: "third_d"), highlightedImage: UIImage(named: "third")),
-                                fouthTabItem: CustomTabItem(title: "four", image: UIImage(named: "fouth_d"), highlightedImage: UIImage(named: "fouth")),
-                                centerTabItem: CustomTabCenterItem(image: UIImage(named: "plus")))
+        let item1 = CustomTabItem(title: "one",
+                                  image: UIImage(named: "first_d"),
+                                  highlightedImage: UIImage(named: "first"))
+        let item2 = CustomTabItem(title: "two",
+                                  image: UIImage(named: "second_d"),
+                                  highlightedImage: UIImage(named: "second"))
+        let item3 = CustomTabItem(title: "three",
+                                  image: UIImage(named: "third_d"),
+                                  highlightedImage: UIImage(named: "third"))
+        let item4 =  CustomTabItem(title: "four",
+                                   image: UIImage(named: "fouth_d"),
+                                   highlightedImage: UIImage(named: "fouth"))
+        let centerItem = CustomTabCenterItem(image: UIImage(named: "plus"))
+        
+        _tabView = CustomTabBar(firstTabItem:   item1,
+                                secondTabItem:  item2,
+                                thirdTabItem:   item3,
+                                fouthTabItem:   item4,
+                                centerTabItem:  centerItem)
 
         super.init(coder: aDecoder)
     
@@ -58,15 +75,15 @@ class CustomTabView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
      
-        var tabViewHeight = self.bounds.height/9
-        let tabViewWidth = self.bounds.width
+        var tabViewHeight   = self.bounds.height/9
+        let tabViewWidth    = self.bounds.width
         
         if tabViewHeight < MINI_TAB_HIGHT {
             tabViewHeight = MINI_TAB_HIGHT
         }
         
-        let mainViewHeight = self.bounds.height - tabViewHeight
-        let mainViewWidth = self.bounds.width
+        let mainViewHeight  = self.bounds.height - tabViewHeight
+        let mainViewWidth   = self.bounds.width
         
        
         if self.subviews.contains(mainView) {
