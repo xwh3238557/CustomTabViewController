@@ -10,55 +10,62 @@ import UIKit
 
 class CustomTabItemView: UIView {
     let margin = CGFloat(3)
+    
+    // this is the icon view of this view
     private var _iconView: UIImageView!
+    //this is the title view of this view
     private var _titleView: UILabel!
     
-    private let _item: CustomTabItem
-    
-    var onTapListener: ((CustomTabItemView) -> Void)?
-    
-    var isSelected = false{
-        didSet{
-            _iconView.isHighlighted = isSelected
-            if isSelected {
-                _titleView.textColor = _item.highlightedTitleColor
-            } else {
-                _titleView.textColor = _item.titleColor
-            }
+    var titleColor: UIColor {
+        set {
+            _titleView.textColor = newValue
+        }
+        get {
+            return _titleView.textColor
         }
     }
     
-    init(item: CustomTabItem) {
-        self._item = item
+    var title: String? {
+        set {
+            _titleView.text = newValue
+        }
+        get {
+            return _titleView.text
+        }
+    }
+    
+    var icon: UIImage? {
+        set {
+            _iconView.image = newValue
+        }
+        get {
+            return _iconView.image
+        }
+    }
+    
+    init(title: String? = nil, titleColor: UIColor = UIColor.gray, icon: UIImage? = nil) {
         super.init(frame: CGRect.zero)
-        _iconView = UIImageView(image: item.image, highlightedImage: item.highlightedImage)
+        initSubviews()
+        
+        self.icon       = icon
+        self.title      = title
+        self.titleColor = titleColor
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initSubviews()
+    }
+    
+    private func initSubviews() {
+        _iconView = UIImageView(frame: CGRect.zero)
         _iconView.contentMode = .scaleAspectFit
         self.addSubview(_iconView)
         
         _titleView = UILabel(frame: CGRect.zero)
         _titleView.textAlignment = .center
-        _titleView.text = item.title
-        _titleView.textColor = item.titleColor
-        
         self.addSubview(_titleView)
-        
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
-
     }
-    
-    @objc
-    private func handleTap() {
-        if let lis = onTapListener {
-            lis(self)
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    
     
     override func layoutSubviews() {
         let iconViewHeight = self.bounds.height / 7*5 - margin * 2
@@ -71,6 +78,5 @@ class CustomTabItemView: UIView {
         
         _titleView.frame = CGRect(x: margin, y: 3*margin + iconViewHeight, width: titleViewWidth, height: titleViewHeight)
         _titleView.font = UIFont.systemFont(ofSize: titleViewHeight)
-        
     }
 }

@@ -211,7 +211,7 @@
 				TargetAttributes = {
 					88534F3B1E495012001C54F7 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 2766AW5J33;
+						DevelopmentTeam = D8985EY8Z2;
 						ProvisioningStyle = Automatic;
 					};
 					88534F4F1E495012001C54F7 = {
@@ -437,11 +437,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2766AW5J33;
+				DEVELOPMENT_TEAM = D8985EY8Z2;
 				INFOPLIST_FILE = CustomTabViewController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xiawenhao.CustomTabViewController;
+				PRODUCT_BUNDLE_IDENTIFIER = wenhao.CustomTabViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -451,11 +451,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2766AW5J33;
+				DEVELOPMENT_TEAM = D8985EY8Z2;
 				INFOPLIST_FILE = CustomTabViewController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xiawenhao.CustomTabViewController;
+				PRODUCT_BUNDLE_IDENTIFIER = wenhao.CustomTabViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -30,43 +30,56 @@ class CustomTabView: UIView {
     
     override init(frame: CGRect) {
         _mainView = UIView(frame: CGRect.zero)
+        
+        let tabItems = [
+            CustomTabItem(title: "one"
+                , defaultIcon: UIImage(named: "first_d")
+                , selectedIcon: UIImage(named: "first"))
+            , CustomTabItem(title: "two"
+                , defaultIcon: UIImage(named: "second_d")
+                , selectedIcon: UIImage(named: "second"))
+            , CustomTabItem(title: "three"
+                , defaultIcon: UIImage(named: "third_d")
+                , selectedIcon: UIImage(named: "third"))
+            , CustomTabItem(title: "four"
+                , defaultIcon: UIImage(named: "fouth_d")
+                , selectedIcon: UIImage(named: "fouth"))
+        ]
+        
+        let centerItem = CustomTabCenterItem(icon: UIImage(named: "plus"))
+        
+        _tabView = CustomTabBar(tabItems: tabItems, centerTabItem: centerItem)
 
-        _tabView = CustomTabBar(firstTabItem:   nil,
-                                secondTabItem:  nil,
-                                thirdTabItem:   nil,
-                                fouthTabItem:   nil,
-                                centerTabItem:  nil)
-      
         super.init(frame: frame)
-
+        
         self.addSubview(mainView)
         self.addSubview(tabView)
     }
     
     required init?(coder aDecoder: NSCoder) {
         _mainView = UIView(frame: CGRect.zero)
-        let item1 = CustomTabItem(title: "one",
-                                  image: UIImage(named: "first_d"),
-                                  highlightedImage: UIImage(named: "first"))
-        let item2 = CustomTabItem(title: "two",
-                                  image: UIImage(named: "second_d"),
-                                  highlightedImage: UIImage(named: "second"))
-        let item3 = CustomTabItem(title: "three",
-                                  image: UIImage(named: "third_d"),
-                                  highlightedImage: UIImage(named: "third"))
-        let item4 =  CustomTabItem(title: "four",
-                                   image: UIImage(named: "fouth_d"),
-                                   highlightedImage: UIImage(named: "fouth"))
-        let centerItem = CustomTabCenterItem(image: UIImage(named: "plus"))
         
-        _tabView = CustomTabBar(firstTabItem:   item1,
-                                secondTabItem:  item2,
-                                thirdTabItem:   item3,
-                                fouthTabItem:   item4,
-                                centerTabItem:  centerItem)
+        let tabItems = [
+            CustomTabItem(title: "one"
+                , defaultIcon: UIImage(named: "first_d")
+                , selectedIcon: UIImage(named: "first"))
+            , CustomTabItem(title: "two"
+                , defaultIcon: UIImage(named: "second_d")
+                , selectedIcon: UIImage(named: "second"))
+            , CustomTabItem(title: "three"
+                , defaultIcon: UIImage(named: "third_d")
+                , selectedIcon: UIImage(named: "third"))
+            , CustomTabItem(title: "four"
+                , defaultIcon: UIImage(named: "fouth_d")
+                , selectedIcon: UIImage(named: "fouth"))
+        ]
+        
+        let centerItem = CustomTabCenterItem(icon: UIImage(named: "plus"))
+        
+        _tabView = CustomTabBar(tabItems: tabItems, centerTabItem: centerItem)
 
         super.init(coder: aDecoder)
-    
+        
         self.addSubview(mainView)
         self.addSubview(tabView)
     }

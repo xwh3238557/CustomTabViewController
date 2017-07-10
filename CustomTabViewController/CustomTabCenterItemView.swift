@@ -9,65 +9,48 @@
 import UIKit
 
 class CustomTabCenterItemView: UIView {
-
+    
+    private let DEFAULT_ROATING_DURATION = 0.5
     private let _margin = CGFloat(10)
     
-    private var _isSelected = false
     
     var tapListener: ((CustomTabCenterItemView) -> Void)?
     
     private var _oldBounds: CGRect?
     
-    private let _innerView: UIImageView
+    let iconView: UIImageView
     
-    var isSelected: Bool{
-        get{
-            return _isSelected
-        }
-    }
-    
-    init(item: CustomTabCenterItem) {
-        _innerView = UIImageView(image: item.image)
-       
+    init(icon: UIImage?) {
+        iconView = UIImageView(image: icon)
         super.init(frame: CGRect.zero)
-        self.addSubview(_innerView)
         
-        _innerView.isUserInteractionEnabled = true
-        _innerView.contentMode = .scaleAspectFit
-       
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CustomTabCenterItemView.handleTap)))
+        setupSubview()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        iconView = UIImageView(image: nil)
+        super.init(coder: aDecoder)
+        
+        setupSubview()
     }
     
-
+    private func setupSubview() {
+        self.addSubview(iconView)
+        iconView.contentMode = .scaleAspectFit
+    }
     
-    @objc
-    private func handleTap() {
-        _isSelected = !_isSelected
-        let roatet = -CGFloat.pi*3/4
-        UIView.animate(withDuration: 1,
-                       delay: 0,
-                       usingSpringWithDamping: 0.5,
-                       initialSpringVelocity: 0.5,
-                       options: .allowAnimatedContent,
-                       animations: { [unowned self] in
-                            if self._isSelected {
-                                self._innerView.transform = CGAffineTransform(rotationAngle: roatet)
-                            } else {
-                                self._innerView.transform = CGAffineTransform(rotationAngle: 0)
-                            }
-                        },
-                       completion: {Void in
-                        
-                        }
-        )
+    func roateToAngle (degreeRoateTo: Int) {
+        let radius = CGFloat.pi * CGFloat(degreeRoateTo) / 180
         
-        if let listener = tapListener {
-            listener(self)
-        }
+        UIView.animate(withDuration: TimeInterval(DEFAULT_ROATING_DURATION)
+            , delay: TimeInterval(0)
+            , usingSpringWithDamping: 0.5
+            , initialSpringVelocity: 0.5
+            , options: .allowAnimatedContent
+            , animations: { [unowned self] in
+                self.iconView.transform = CGAffineTransform.init(rotationAngle: radius)
+            }
+            , completion: nil)
     }
     
     override func layoutSubviews() {
@@ -82,7 +65,7 @@ class CustomTabCenterItemView: UIView {
             let innerViewX = _margin
             let innerViewY = _margin
             
-            _innerView.frame = CGRect(x: innerViewX, y: innerViewY, width: innerViewWidth, height: innerViewHeight)
+            iconView.frame = CGRect(x: innerViewX, y: innerViewY, width: innerViewWidth, height: innerViewHeight)
         }
     }
 
